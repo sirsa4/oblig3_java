@@ -170,6 +170,48 @@ public class Main {
         System.out.printf("Narnia plot: %s\n",narnia.getBeskrivelse());
         System.out.printf("Episode nr %d, released in %s has plot as follows: \"%s\"\n",episode145.get(0).getEpisodeNr(),episode145.get(0).getUtgivelsesdato(),episode145.get(0).getBeskrivelse());
 
+        System.out.println();
+        System.out.println("----------------Oppgave2.4-----------------------------------");
+
+        //oppgave2.4 - regissor
+
+        //regissor instances
+        Person neo = new Person("thomas","anderson");
+        Person shuri = new Person("aja","adanna");
+        Person fry = new Person("phlipp","fry");
+
+        //Adding Person objects as regissor to both to the Film and Episode objects. neo to the matrix and shuri to wankanda
+
+        //add regissor to Film
+        System.out.println("Add regissor to films and print out regissor full name: ");
+        for(Film film : filmList){
+            if(film.getTitle().equals("the matrix")){
+                //add neo Person object when Film is the Matrix
+                film.setRegissor(neo);
+            } else if(film.getTitle().equals("wakanda")){
+                //add shuri when loop is at wakanda
+                film.setRegissor(shuri);
+            }
+        }
+
+        //print out Film objects with regissor
+        for(Film film : filmList){
+            if(film.getTitle().equals("the matrix")){
+                System.out.printf("Film: %s, regissor: %s\n",film.getTitle(),film.getRegissor().getFullName());
+            } else if(film.getTitle().equals("wakanda")){
+                System.out.printf("Film: %s, regissor: %s\n",film.getTitle(),film.getRegissor().getFullName());
+            }
+        }
+
+        System.out.println();
+        System.out.println("Add regissor to an episode and print out regissor full name:");
+        //add regissor to Episode object. Here using Episode object episode145 created in oppgave2.3 above
+        episode145.get(0).setRegissor(fry);
+
+        //print out regissor in epside145
+        System.out.printf("EpisodeNr: %d, regissor: %s\n",episode145.get(0).getEpisodeNr(),episode145.get(0).getRegissor().getFullName());
+
+
 
      //main method end
     }

@@ -10,6 +10,11 @@ public abstract class Produksjon {
     private String beskrivelse;
     private LocalDate utgivelsesdato;
 
+    //oppgave2.4 - add regissor instance variable to both Film and Episode classes
+    //Adding regissor to this super class which both Film and Episode extend is a good idea
+    //Reason is to avoid having to add regissor both classes manually and repeating process. Here we can do it at once.
+    private Person regissor;
+
 
     //oppgave2.1
 
@@ -67,6 +72,14 @@ public abstract class Produksjon {
     }
     public void setBeskrivelse(String beskrivelse){
         this.beskrivelse = beskrivelse;
+    }
+
+    //oppgave2.4 setter and getter method for regissor instance variable
+    public Person getRegissor(){
+        return this.regissor;
+    }
+    public void setRegissor(Person regissor){
+        this.regissor = regissor;
     }
 
 
