@@ -211,6 +211,68 @@ public class Main {
         //print out regissor in epside145
         System.out.printf("EpisodeNr: %d, regissor: %s\n",episode145.get(0).getEpisodeNr(),episode145.get(0).getRegissor().getFullName());
 
+        System.out.println();
+        System.out.println("----------------Oppgave2.5-----------------------------------");
+
+        //Rolle objects
+        Rolle producer = new Rolle("executive","producer",new Person("homer","simpson"));
+        Rolle castingPerson = new Rolle("casting","director",new Person("bart","simpson"));
+        Rolle artDP = new Rolle("art","department",new Person("lisa","simpson"));
+        Rolle soundDP = new Rolle("sound","department",new Person("maggie","simpson"));
+
+        //to avoid looping like in oppgave2.4, creating new Film and Episode instance to use is easier
+        Film theSimpsonsMovie = new Film("the simpsons",145,LocalDate.of(2007,7,27));
+
+        //add 2 roller to the new movie using set method which can add multiple items
+        //first create and ArrayList to hold the 2 roller that is being added to the movie
+        ArrayList<Rolle> movieCreators = new ArrayList<>();
+        movieCreators.add(producer);
+        movieCreators.add(castingPerson);
+
+        //now add movieCreators list to the movie
+        theSimpsonsMovie.leggTilMangeRoller(movieCreators);
+
+        //to print out roller in the Film object, we need to use the get method which Film class has inherited from Production class.
+        //First store rolle ArrayList in a Rolle variable than be looped through
+        ArrayList<Rolle> simpsonsMovieRoller = theSimpsonsMovie.getRoller();
+
+        //loop through each Rolle item and finally print out content inside each array object
+        System.out.println();
+        System.out.println("Rolle in The Simpons Movie: ");
+        for(Rolle enRolle : simpsonsMovieRoller){
+            System.out.printf("%s har rollen: \"%s %s\"\n",enRolle.getSkuespiller().getFullName(),enRolle.getRolleFornavn(),enRolle.getRolleEtternavn());
+        }
+
+        //Add roller to an Episode object. This is similar to step above when adding roller to theSimpsonsMovie
+        //first create an Episode object. This is also to avoid looping through entire Epside list which is over 100+ episodes.
+        Episode simpsonsEpisode = new Episode("Episode by the children",321,7,44);
+
+        //Array:ist to roller
+        ArrayList<Rolle> episodeRoller = new ArrayList<>();
+
+        //add roller to the empty ArrayList,episoderoller. We are using the remaining 2 Rolle objects, artDP and soundDP
+        episodeRoller.add(artDP);
+        episodeRoller.add(soundDP);
+
+        //now the Arraylist to episode as new Rolle objects
+        simpsonsEpisode.leggTilMangeRoller(episodeRoller);
+
+        //same as before. Store rolle ArrayList in simponsEpisode in an ArrayList that can be looped to print out data
+        ArrayList<Rolle> simpsonsEpisodeRoller = simpsonsEpisode.getRoller();
+
+        //loop through list
+        //using normal for loop because it is better imo
+        System.out.println();
+        System.out.println("Rolle in simpons episode: ");
+        for(int i = 0; i < simpsonsEpisodeRoller.size(); i++){
+
+            //variable to store rolle in loop iteration using index for loop
+            Rolle enRolle = simpsonsEpisodeRoller.get(i);
+
+            //print out to console data from each rolle in the episode
+            System.out.printf("%s har rollen: \"%s %s\"\n",enRolle.getSkuespiller().getFullName(),enRolle.getRolleFornavn(),enRolle.getRolleEtternavn());
+
+        }
 
 
      //main method end
