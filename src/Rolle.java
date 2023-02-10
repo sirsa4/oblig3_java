@@ -34,5 +34,14 @@ public class Rolle {
         this.skuespiller = skuespiller;
     }
 
+    //oppgave2,6 - toString()
+    //by default toString() method from Object return the memory address location of the instance.
+    //we can override this method to return something else
+    //here toString() returns generic information of the object.
+    @Override
+    public String toString(){
+        return "Rolle navn: "+ this.rolleFornavn+" "+this.rolleEtternavn+ ". skuespiller: "+this.skuespiller.getFullName();
+    }
+
 
 }//end of class

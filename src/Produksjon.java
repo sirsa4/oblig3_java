@@ -110,5 +110,12 @@ public abstract class Produksjon {
         roller.addAll(flereRoller);
     }
 
+    //oppgave2.6 - toString
+
+    @Override
+    public String toString(){
+        return  this.title +" har spilletid: "+this.spilletid+ " minutter";
+    }
+
 
 }//end of class

@@ -160,5 +160,27 @@ public class TVSerie {
 
     }
 
-}
+    //oppgave2.7 - hente Roller i alle episoder
+    //This method returns Roller objects inside all Episode objects
+    //using similar strategy as in hentEpisoderISesong(), where emptry ArrayList is created, add items to and then finally return it from method
+    public ArrayList<Rolle> hentRollebesetning(){
+
+        //empty array to roller from episodes
+         ArrayList<Rolle> roller = new ArrayList<>();
+
+
+         //loop through episoder ArrayList to have access to each single Episode object
+         for(Episode ep : episoder){
+             //getRoller() in Production class returns an ArrayList<roller> since each episode can have more than 1 Rolle.
+             //so we need to ArrayList into the empty Arraylist above,roller.
+             //this is done with .addAll() method which we get from the ArrayList class in java
+             roller.addAll(ep.getRoller());
+         }
+         //finally return roller ArrayList which is no longer empty and now holds all ArrayList<Rolle> from all Episode objects.
+        return roller;
+    }
+
+
+
+}//end of class
 
