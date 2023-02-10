@@ -1,4 +1,6 @@
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public abstract class Produksjon {
 
@@ -14,6 +16,9 @@ public abstract class Produksjon {
     //Adding regissor to this super class which both Film and Episode extend is a good idea
     //Reason is to avoid having to add regissor both classes manually and repeating process. Here we can do it at once.
     private Person regissor;
+
+    //oppgave2.5 - "rolle" Arraylist for which Episode and Film can hold people with different roles in their object instances
+    private ArrayList<Rolle> roller = new ArrayList<>();
 
 
     //oppgave2.1
@@ -80,6 +85,29 @@ public abstract class Produksjon {
     }
     public void setRegissor(Person regissor){
         this.regissor = regissor;
+    }
+
+    //oppgave2.5 - getter and setter methods for Episode and Film classes
+    //just like in oblig2, getter method for ArrayList returns copy of the original list. The reason for security so that user of this method can't manipulate the content of the original rolle ArrayList
+    public ArrayList<Rolle> getRoller(){
+        return new ArrayList<>(roller);
+    }
+
+    //This method adds only 1 rolle object to roller ArrayList
+    public void leggTilEnRolle(Rolle enRolle){
+        roller.add(enRolle);
+    }
+
+    //This method adds several items to rolle Arraylist at once
+    //source for addAll(): https://www.baeldung.com/java-add-items-array-list
+    /* code example from baeldung
+
+        List<Integer> anotherList = Arrays.asList(5, 12, 9, 3, 15, 88);
+        list.addAll(anotherList);
+
+     */
+    public void leggTilMangeRoller(ArrayList<Rolle> flereRoller){
+        roller.addAll(flereRoller);
     }
 
 
