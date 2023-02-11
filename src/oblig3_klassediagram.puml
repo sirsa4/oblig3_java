@@ -1,0 +1,28 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+TVSerie o-- Episode
+
+
+class TVSerie{
+    -title: String
+    -beskrivelse: String
+    -utgivelsesdato: LocalDate
+    -episoder: ArrayList<Episode>
+    -gjennomsnittligSpilletid: double
+    -antallSesonger: int
+    +oppdaterGjennomsnittligSpilletid(): void
+    +hentEpisoderISesong(int sesong): ArrayList<Episode>
+    +leggTilEpisode(): void
+    +hentRollebesetning(): ArrayList<Rolle>
+}
+
+class Episode{
+    episodeNr: int
+    sesongNr: int
+
+}
+
+
+
+@enduml
